@@ -29,3 +29,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+
+# Radio Interface Layer
+BOARD_RIL_CLASS := ../../../$(COMMON_PATH)/ril

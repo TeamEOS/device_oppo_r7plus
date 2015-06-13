@@ -1,2 +1,4 @@
 # Display
 ro.sf.lcd_density=480
+# RIL
+ro.telephony.ril_class=OppoRIL
