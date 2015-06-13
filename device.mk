@@ -20,8 +20,13 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/fstab.qcom:root/fstab.qcom \
-    $(LOCAL_PATH)/configs/init.qcom.rc:root/init.qcom.rc
+    $(LOCAL_PATH)/ramdisk/fstab.qcom.rc:root/fstab.qcom.rc \
+    $(LOCAL_PATH)/ramdisk/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/ramdisk/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/ramdisk/init.oppo.usb.rc:root/init.oppo.usb.rc \
+    $(LOCAL_PATH)/ramdisk/init.qcom.usb.sh:root/init.qcom.usb.sh \
+    $(LOCAL_PATH)/ramdisk/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
