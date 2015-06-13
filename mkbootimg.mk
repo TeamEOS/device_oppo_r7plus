@@ -4,10 +4,10 @@ LOCAL_PATH := $(call my-dir)
 DTBTOOL := $(HOST_OUT_EXECUTABLES)/dtbTool.oppo.msm8916$(HOST_EXECUTABLE_SUFFIX)
 INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
 
-$(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr $(INSTALLED_KERNEL_TARGET)
-	$(call pretty,"Target dt image: $(INSTALLED_DTIMAGE_TARGET)")
-	$(hide) $(DTBTOOL) -o $(INSTALLED_DTIMAGE_TARGET) -s $(BOARD_KERNEL_PAGESIZE) -p $(KERNEL_OUT)/scripts/dtc/ $(KERNEL_OUT)/arch/arm/boot/
-	@echo -e ${CL_CYN}"Made DT image: $@"${CL_RST}
+#$(INSTALLED_DTIMAGE_TARGET): $(DTBTOOL) $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr $#(INSTALLED_KERNEL_TARGET)
+#	$(call pretty,"Target dt image: $(INSTALLED_DTIMAGE_TARGET)")
+#	$(hide) $(DTBTOOL) -o $(INSTALLED_DTIMAGE_TARGET) -s $(BOARD_KERNEL_PAGESIZE) -p $(KERNEL_OUT)/scripts/dtc/ $(KERNEL_OUT)/arch/arm/boot/
+#	@echo -e ${CL_CYN}"Made DT image: $@"${CL_RST}
 
 
 ## Overload bootimg generation: Same as the original, + --dt arg
