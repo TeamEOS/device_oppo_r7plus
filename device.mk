@@ -30,5 +30,9 @@ PRODUCT_PACKAGES += \
     Nfc \
     Tag
 
+# Sensors
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf \
+
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/oppo/r5/r5-vendor.mk)
