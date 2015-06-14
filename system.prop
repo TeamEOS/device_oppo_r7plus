@@ -2,3 +2,37 @@
 ro.sf.lcd_density=480
 # RIL
 ro.telephony.ril_class=OppoRIL
+# Misc props from stock
+ro.opengles.version=196608
+ro.qualcomm.cabl=0
+debug.composition.type=c2d
+persist.hwc.mdpcomp.enable=true
+persist.radio.apm_sim_not_pwdn=1
+rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+ril.subscription.types=NV,RUIM
+ro.telephony.default_network=5
+drm.service.enabled=true
+wifi.interface=wlan0
+media.aac_51_output_enabled=true
+ro.oppo.version=US
+ro.xxversion=v0.5
+camera2.portability.force_api=1
+ro.qc.sdk.audio.ssr=false
+##fluencetype can be "fluence" or "fluencepro" or "none"
+ro.qc.sdk.audio.fluencetype=none
+persist.audio.fluence.voicecall=true
+persist.audio.fluence.voicerec=false
+persist.audio.fluence.speaker=true
+#Set for msm8916
+tunnel.audio.encode = false
+#Buffer size in kbytes for compress offload playback
+audio.offload.buffer.size.kb=32
+#use VERY_HIGH_QUALITY for audio resampler
+af.resampler.quality=4
+#Enable offload audio video playback by default
+av.offload.enable=false
+#enable voice path for PCM VoIP by default
+use.voice.path.for.pcm.voip=true
+audio.offload.gapless.enabled=true
+ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+persist.gps.qc_nlp_in_use=1
