@@ -121,3 +121,6 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Radio Interface Layer
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
+
+# Force SeLinux into permissive mode
+COMMON_GLOBAL_CFLAGS += -DFORCE_SELINUX_PERMISSIVE
