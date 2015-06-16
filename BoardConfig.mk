@@ -124,3 +124,6 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 
 # Force SeLinux into permissive mode
 COMMON_GLOBAL_CFLAGS += -DFORCE_SELINUX_PERMISSIVE
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.qcom
