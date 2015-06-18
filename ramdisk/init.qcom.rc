@@ -703,7 +703,7 @@ service config-zram /system/bin/sh /system/etc/init.qcom.zram.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
-    #start config-zram
+    start config-zram
 
 service atfwd /system/bin/ATFWD-daemon
     class late_start
@@ -716,6 +716,12 @@ service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     group root
     oneshot
     disabled
+
+service sensor_work /system/bin/sensor_work    
+    class late_start
+    user root
+    group root 
+    oneshot
 
 service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
     class late_start
@@ -783,12 +789,25 @@ service profiler_daemon /system/bin/profiler_daemon
     group root
     disabled
 
+service wififtmserver /system/bin/sh system/bin/wifi_ftm
+    class late_start
+    user root
+    group root
+    disabled
+   # oneshot
+
+on property:WFtmUp=1
+        start wififtmserver
+
 service wifisingle /system/bin/sh system/bin/wifi_single
     class late_start
     user root
     group root
     disabled
     oneshot
+   
+on property:oppo.WifiSgle=1
+        start wifisingle
 
 service fuse /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start

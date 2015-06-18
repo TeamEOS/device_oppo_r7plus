@@ -14,4 +14,9 @@
 /devices/soc.0/78b7000.spi/spi_master/spi0/spi0.0          /storage/uicc1     vfat    nosuid,nodev         wait,voldmanaged=uicc1:auto
 #/devices/platform/msm_hsusb                  /storage/usbotg    vfat    nosuid,nodev         wait,voldmanaged=usbotg:auto
 /devices/platform/msm_hsusb                  /storage/UDiskA    vfat    nosuid,nodev         wait,voldmanaged=UDiskA:auto
+/devices/platform/msm_hsusb                  /storage/UDiskB    vfat    nosuid,nodev         wait,voldmanaged=UDiskB:auto
+/devices/platform/msm_hsusb                  /storage/UDiskC    vfat    nosuid,nodev         wait,voldmanaged=UDiskC:auto
+/devices/platform/msm_hsusb                  /storage/UDiskD    vfat    nosuid,nodev         wait,voldmanaged=UDiskD:auto
+/devices/platform/msm_hsusb                  /storage/UDiskE    vfat    nosuid,nodev         wait,voldmanaged=UDiskE:auto
+/devices/platform/msm_hsusb                  /storage/UDiskF    vfat    nosuid,nodev         wait,voldmanaged=UDiskF:auto
 /dev/block/zram0             none         swap    defaults zramsize=268435456
