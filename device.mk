@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/oppo/r5
+LOCAL_PATH := device/oppo/r7
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -172,4 +172,4 @@ PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Call the proprietary setup
-$(call inherit-product-if-exists, vendor/oppo/r5/r5-vendor.mk)
+$(call inherit-product-if-exists, vendor/oppo/r7/r7-vendor.mk)

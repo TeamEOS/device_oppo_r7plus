@@ -3,7 +3,7 @@
 set -e
 
 export VENDOR=oppo
-export DEVICE=r5
+export DEVICE=r7
 
 function extract() {
 for FILE in `egrep -v '(^#|^$)' $1`; do
@@ -27,7 +27,7 @@ done
 }
 
 
-BASE=../../../vendor/oppo/r5/proprietary
+BASE=../../../vendor/oppo/r7/proprietary
 rm -rf $BASE/*
 
 DEVBASE=../../../vendor/$VENDOR/$DEVICE/proprietary
@@ -35,4 +35,4 @@ rm -rf $DEVBASE/*
 
 extract ../../$VENDOR/$DEVICE/proprietary-files.txt $DEVBASE
 
-./../../r5/setup-makefiles.sh
+./../../r7/setup-makefiles.sh

@@ -2,7 +2,7 @@
 
 set -e
 
-export DEVICE=r5
+export DEVICE=r7
 export VENDOR=oppo
 
 OUTDIR=vendor/$VENDOR/$DEVICE
@@ -28,10 +28,10 @@ MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 PRODUCT_COPY_FILES += \\
 EOF
 LINEEND=" \\"
-COUNT=`wc -l ../../oppo/r5/proprietary-files.txt | awk {'print $1'}`
-DISM=`egrep -c '(^#|^$)' ../../oppo/r5/proprietary-files.txt`
+COUNT=`wc -l ../../oppo/r7/proprietary-files.txt | awk {'print $1'}`
+DISM=`egrep -c '(^#|^$)' ../../oppo/r7/proprietary-files.txt`
 COUNT=`expr $COUNT - $DISM`
-for FILE in `egrep -v '(^#|^$)' ../../oppo/r5/proprietary-files.txt`; do
+for FILE in `egrep -v '(^#|^$)' ../../oppo/r7/proprietary-files.txt`; do
 COUNT=`expr $COUNT - 1`
 if [ $COUNT = "0" ]; then
 LINEEND=""
