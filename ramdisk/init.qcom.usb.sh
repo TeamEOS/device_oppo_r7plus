@@ -264,27 +264,25 @@ esac
 # Add changes to support diag with rndis
 #
 diag_extra=`getprop persist.sys.usb.config.extra`
-case "$diag_extra" in
-	"diag" | "diag,diag_mdm" | "diag,diag_mdm,diag_qsc")
-		case "$baseband" in
-			"mdm")
-				setprop persist.sys.usb.config.extra diag,diag_mdm
-			;;
-		        "dsda" | "sglte2" )
-				setprop persist.sys.usb.config.extra diag,diag_mdm,diag_qsc
-			;;
-		        "sglte")
-				setprop persist.sys.usb.config.extra diag,diag_qsc
-			;;
-		        "dsda2")
-				setprop persist.sys.usb.config.extra diag,diag_mdm,diag_mdm2
-			;;
-		        *)
-				setprop persist.sys.usb.config.extra diag
-			;;
-	        esac
-	;;
-        *)
-		setprop persist.sys.usb.config.extra none
+if [ "$diag_extra" == "" ]; then
+	setprop persist.sys.usb.config.extra none
+fi
+
+#ifdef VENDOR_EDIT
+#Feilong.Xu@Prd.Network.Data, 2015/04/13, Add for CR754794 and 788518 check for 14047 TC-FDD_SRLTE-03046 fail
+#Enable CPU RPS mask on msm8939 target to fix the out of order packets issue
+# soc_ids for 8916/8939 differentiation
+if [ -f /sys/devices/soc0/soc_id ]; then
+	soc_id=`cat /sys/devices/soc0/soc_id`
+else
+	soc_id=`cat /sys/devices/system/soc/soc0/id`
+fi
+
+# enable rps cpus on msm8939 target
+setprop sys.usb.rps_mask 0
+case "$soc_id" in
+	"239" | "241" | "263")
+		setprop sys.usb.rps_mask 10
 	;;
 esac
+#endif /* VENDOR_EDIT */

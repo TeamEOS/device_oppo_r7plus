@@ -30,12 +30,11 @@
 on early-init
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
-    mkdir /persist 0771 system system
     symlink /data/tombstones /tombstones
 
 # import cne init file
-#on post-fs
-#    export LD_PRELOAD /vendor/lib/libNimsWrap.so
+on post-fs
+    export LD_PRELOAD /vendor/lib/libNimsWrap.so
 
 on fs
     mount_all fstab.qcom
@@ -135,7 +134,18 @@ on charger
 
 on boot
     insmod /system/lib/modules/adsprpc.ko
+#ifdef VENDOR_EDIT
+#wenhua.Leng@MultiMedia at 2014-12-09 add for svi
+on property:ro.qualcomm.svi=1
+service ppd /system/bin/mm-pp-daemon --enable-aba-svi
+    class late_start
+    disabled
+    user system
+    socket pps stream 0660 system system
+    group system graphics
+#endif
 
+on property:ro.qualcomm.svi=0
 service ppd /system/bin/mm-pp-daemon
     class late_start
     disabled
