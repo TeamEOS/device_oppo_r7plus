@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/oppo/r7
+LOCAL_PATH := device/oppo/r7plus
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
