@@ -19,47 +19,12 @@ LOCAL_PATH := device/oppo/r7
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := r7
 
-# Platform
-TARGET_BOARD_PLATFORM := msm8916
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno405
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-
-# Architecture
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
-TARGET_CPU_VARIANT := cortex-a53
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
-
 # Kernel
-BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom androidboot.selinux=permissive user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci quiet
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x02000000
-BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 TARGET_KERNEL_CONFIG := eos_r7_defconfig
 TARGET_KERNEL_SOURCE := kernel/oppo/r7
-
-# Qualcomm BSP
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP -DQCOM_MEDIA_DISABLE_BUFFER_SIZE_CHECK
-
-# Display
-BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
-USE_OPENGL_RENDERER := true
-TARGET_USES_ION := true
-TARGET_USES_C2D_COMPOSITION := true
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-
-# Time Daemon
-BOARD_USES_QC_TIME_SERVICES := true
-
-# Audio/Video Enhancements
-TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
 # Audio
 COMMON_GLOBAL_CFLAGS += -DAUDIO_NO_CALIBRATION_NODES
@@ -76,38 +41,6 @@ AUDIO_FEATURE_ENABLED_USBAUDIO := true
 AUDIO_FEATURE_ENABLED_COMPRESS_CAPTURE := true
 AUDIO_FEATURE_ENABLED_INCALL_MUSIC := true
 
-# Camera
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS -DOPPO_CAMERA_HARDWARE
-USE_DEVICE_SPECIFIC_CAMERA := true
-
-# Disable secure discard because it's SLOW
-BOARD_SUPPRESS_SECURE_ERASE := true
-
-# Bluetooth
-BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_QCOM := true
-BLUETOOTH_HCI_USE_MCT := true
-
-# Wifi
-BOARD_HAS_QCOM_WLAN              := true
-BOARD_WLAN_DEVICE                := qcwcn
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_DRIVER_FW_PATH_STA          := "sta"
-WIFI_DRIVER_FW_PATH_AP           := "ap"
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlan.ko"
-WIFI_DRIVER_MODULE_NAME          := "wlan"
-
-# Charger
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
-
-# Use this flag if the board has a ext4 partition larger than 2gb
-BOARD_HAS_LARGE_FILESYSTEM := true
-TARGET_USERIMAGES_USE_EXT4 := true
-
 TARGET_OTA_ASSERT_DEVICE := r7
 
 # Partition info
@@ -117,14 +50,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1388314624
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 3221225472
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
-
-# Radio Interface Layer
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
-
-# Force SeLinux into permissive mode
-COMMON_GLOBAL_CFLAGS += -DFORCE_SELINUX_PERMISSIVE
-
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.qcom
+
+include device/oppo/r7/BoardConfigCommon.mk
