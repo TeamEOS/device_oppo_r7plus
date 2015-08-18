@@ -3,20 +3,76 @@ ro.sf.lcd_density=480
 # RIL
 ro.telephony.ril_class=OppoRIL
 # Misc props from stock
-ro.opengles.version=196608
-ro.qualcomm.cabl=0
-debug.composition.type=c2d
-persist.hwc.mdpcomp.enable=true
-persist.radio.apm_sim_not_pwdn=1
-rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+rild.libargs=-d /dev/smd0
 ril.subscription.types=NV,RUIM
+DEVICE_PROVISIONED=1
+# Start in cdma mode
 ro.telephony.default_network=5
-drm.service.enabled=true
-wifi.interface=wlan0
+
+debug.sf.hw=0
+debug.egl.hw=0
+persist.hwc.mdpcomp.enable=true
+debug.mdpcomp.logs=0
+dalvik.vm.heapsize=36m
+dev.pm.dyn_samplingrate=1
+persist.demo.hdmirotationlock=false
+debug.mdpcomp.idletime=600
+debug.enable.sglscale=1
+
+#system props for the MM modules
+media.stagefright.enable-player=true
+media.stagefright.enable-http=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-scan=true
+media.msm8939hw=0
+media.msm8929hw=0
+mm.enable.smoothstreaming=true
+mmp.enable.3g2=true
 media.aac_51_output_enabled=true
-ro.oppo.version=US
-ro.xxversion=v0.5
-camera2.portability.force_api=1
+
+#
+# system props for the data modules
+#
+ro.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
+
+#system props for time-services
+persist.timed.enable=true
+
+#
+# system prop for opengles version
+#
+# 131072 is decimal for 0x30000 to report version 3
+ro.opengles.version=196608
+
+# System property for cabl
+#ifdnef VENDOR_EDIT
+#Xiaori.Yuan@Mobile Phone Software Dept.Driver, 2015/04/07  close cabl
+#ro.qualcomm.cabl=2
+#else
+ro.qualcomm.cabl=0
+#endif
+
+#
+# System props for telephony
+# System prop to turn on CdmaLTEPhone always
+telephony.lteOnCdmaDevice=1
+
+#
+# System props for bluetooh
+# System prop to turn on hfp client
+bluetooth.hfp.client=1
+
+#Simulate sdcard on /data/media
+#
+persist.fuse_sdcard=true
+
+#
+#snapdragon value add features
+#
 ro.qc.sdk.audio.ssr=false
 ##fluencetype can be "fluence" or "fluencepro" or "none"
 ro.qc.sdk.audio.fluencetype=none
@@ -26,13 +82,68 @@ persist.audio.fluence.speaker=true
 #Set for msm8916
 tunnel.audio.encode = false
 #Buffer size in kbytes for compress offload playback
-audio.offload.buffer.size.kb=32
-#use VERY_HIGH_QUALITY for audio resampler
-af.resampler.quality=4
+audio.offload.buffer.size.kb=64
+#Minimum duration for offload playback in secs
+audio.offload.min.duration.secs=30
 #Enable offload audio video playback by default
-av.offload.enable=false
+av.offload.enable=true
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
+
+#System property for FM transmitter
+ro.fm.transmitter=false
+#enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
-ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+#Audio voice concurrency related flags
+voice.playback.conc.disabled=true
+voice.record.conc.disabled=true
+voice.voip.conc.disabled=true
+
+#Set read only default composition for USB
+ro.sys.usb.default.config=diag,serial_smd,rmnet_bam,adb
+
+#property to enable user to access Google WFD settings
+persist.debug.wfd.enable=1
+#property to enable VDS WFD solution
+persist.hwc.enable_vds=1
+#property to enable narrow search range for video encoding
+vidc.enc.narrow.searchrange=1
+
+#
+# ADDITIONAL_BUILD_PROPERTIES
+#
+dalvik.vm.heapgrowthlimit=128m
+keyguard.no_require_sim=true
+ro.com.android.dataroaming=true
+ro.com.android.dateformat=MM-dd-yyyy
+ro.config.alarm_alert=alarm_005.ogg
+ro.config.ringtone=ringtone_001.ogg
+ro.config.notification_sound=notification_001.ogg
+ro.config.ringtone_sim2=ringtone_005.ogg
+ro.config.notification_sim2=notification_009.ogg
+ro.carrier=unknown
+ro.oppo.theme.version=703
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
+ro.adb.qemud=1
+ro.vendor.extension_library=libqti-perfd-client.so
+persist.radio.apm_sim_not_pwdn=1
+persist.radio.sib16_support=1
+ro.frp.pst=/dev/block/bootdevice/by-name/config
+ro.setupwizard.mode=OPTIONAL
+ro.com.google.gmsversion=5.1_r2
+drm.service.enabled=true
+dalvik.vm.heapstartsize=16m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=4m
+dalvik.vm.heapmaxfree=8m
+persist.sys.dalvik.vm.lib.2=libart.so
+dalvik.vm.isa.arm64.features=div,needfix_835769
+dalvik.vm.isa.arm.features=div
+net.bt.name=Android
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
 persist.gps.qc_nlp_in_use=1
+persist.loc.nlp_name=com.qualcomm.location
+ro.gps.agps_provider=1
+ro.pip.gated=0
