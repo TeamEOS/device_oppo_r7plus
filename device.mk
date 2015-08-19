@@ -16,9 +16,12 @@
 
 LOCAL_PATH := device/oppo/r7plus
 
+$(call inherit-product, device/oppo/r7/device-common.mk)
+
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ramdisk/fstab.qcom:root/fstab.qcom
+    $(LOCAL_PATH)/ramdisk/fstab.qcom:root/fstab.qcom \
+    $(LOCAL_PATH)/ramdisk/twrp.fstab:root/twrp.fstab
 
 # Audio configuration
 PRODUCT_COPY_FILES += \

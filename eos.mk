@@ -1,3 +1,15 @@
+$(call inherit-product, device/oppo/r7plus/device.mk)
+
+# Copy the 64-bit primary, 32-bit secondary zygote startup script
+PRODUCT_COPY_FILES += system/core/rootdir/init.zygote64_32.rc:root/init.zygote64_32.rc
+
+# Set the zygote property to select the 64-bit primary, 32-bit secondary script
+# This line must be parsed before the one in core_minimal.mk
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
+
+TARGET_SUPPORTS_32_BIT_APPS := true
+TARGET_SUPPORTS_64_BIT_APPS := true
+
 # Inherit some common EOS stuff.
 $(call inherit-product, vendor/eos/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
