@@ -8,6 +8,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
 TARGET_SUPPORTS_32_BIT_APPS := true
 TARGET_SUPPORTS_64_BIT_APPS := true
 
+# Inherit from device
+$(call inherit-product, device/oppo/r7plus/device.mk)
+$(call inherit-product, device/oppo/r7/device-common.mk)
+
 # Inherit some common EOS stuff.
 $(call inherit-product, vendor/eos/config/common_full_phone.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
