@@ -36,7 +36,7 @@
     <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia5" value="0" />
     <ctl name="SEC_MI2S_RX Audio Mixer MultiMedia1" value="0" />
     <ctl name="SEC_MI2S_RX Audio Mixer MultiMedia5" value="0" />
-    <ctl name="VOC_EXT_EC MUX QUAT_MI2S_TX" value="0" />
+    <ctl name="VOC_EXT_EC MUX" value="NONE" />
     <ctl name="DEC1 Volume" value="80" />
     <ctl name="DEC2 Volume" value="80" />
     <ctl name="DEC2 MUX" value="ZERO" />
@@ -197,7 +197,7 @@
     </path>
 	<!--tfa9890 added John.Xu-->
     <path name="deep-buffer-playback i2s">
-		<ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+	<ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" value="1" />
     </path>
 
     <path name="deep-buffer-playback i2s-slimbus">
@@ -209,8 +209,8 @@
         <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia5" value="1" />
     </path>
 	<!--tfa9890 End-->
-	  <path name="deep-buffer-playback sec_i2s">
-			<ctl name="SEC_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    <path name="deep-buffer-playback sec_i2s">
+        <ctl name="SEC_MI2S_RX Audio Mixer MultiMedia1" value="1" />
     </path>
     <path name="low-latency-playback i2s-slimbus">
         <ctl name="SEC_MI2S_RX Audio Mixer MultiMedia5" value="1" />
@@ -273,7 +273,11 @@
     </path>
 
     <path name="compress-offload-playback">
-        <ctl name="PRI_MI2S_RX Audio Mixer MultiMedia4" value="1" />
+        <ctl name="SEC_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+
+    <path name="compress-offload-playback sec_i2s">
+        <ctl name="SEC_MI2S_RX Audio Mixer MultiMedia1" value="1" />
     </path>
 
     <path name="compress-offload-playback bt-sco">
@@ -340,22 +344,17 @@
         <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
     </path>
 
-	  <path name="voice-call i2s">
+    <path name="voice-call i2s">
         <ctl name="QUAT_MI2S_RX_Voice Mixer CSVoice" value="1" />
         <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
-        <ctl name="VOC_EXT_EC MUX QUAT_MI2S_TX" value="1" />
+        <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
     </path>
-    
+
     <path name="voice-call sec_i2s">
         <ctl name="SEC_MI2S_RX_Voice Mixer CSVoice" value="1" />
         <ctl name="Voice_Tx Mixer TERT_MI2S_TX_Voice" value="1" />
     </path>
-    
-    <path name="voice-call i2s-slimbus">
-    	<path name="voice-call sec_i2s" />
-    </path>    
-    
-    
+
     <path name="voice-call bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX_Voice Mixer CSVoice" value="1" />
         <ctl name="Voice_Tx Mixer INTERNAL_BT_SCO_TX_Voice" value="1" />
@@ -374,18 +373,14 @@
     <path name="voice2-call i2s">
         <ctl name="QUAT_MI2S_RX_Voice Mixer Voice2" value="1" />
         <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="1" />
-        <ctl name="VOC_EXT_EC MUX QUAT_MI2S_TX" value="1" />
+        <ctl name="VOC_EXT_EC MUX" value="QUAT_MI2S_TX" />
     </path>
-    
+
     <path name="voice2-call sec_i2s">
         <ctl name="SEC_MI2S_RX_Voice Mixer Voice2" value="1" />
         <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="1" />
     </path>
-    
-    <path name="voice2-call i2s-slimbus">
-    	<path name="voice2-call sec_i2s" />
-    </path>  
-    
+
     <path name="voice2-call">
         <ctl name="PRI_MI2S_RX_Voice Mixer Voice2" value="1" />
         <ctl name="Voice2_Tx Mixer TERT_MI2S_TX_Voice2" value="1" />
@@ -523,12 +518,12 @@
         <ctl name="PRI_MI2S_RX_Voice Mixer Voip" value="1" />
         <ctl name="Voip_Tx Mixer TERT_MI2S_TX_Voip" value="1" />
     </path>
-    
+
     <path name="compress-voip-call i2s">
         <ctl name="QUAT_MI2S_RX_Voice Mixer Voip" value="1" />
         <ctl name="Voip_Tx Mixer TERT_MI2S_TX_Voip" value="1" />
     </path>
-    
+
     <path name="compress-voip-call sec_i2s">
         <ctl name="SEC_MI2S_RX_Voice Mixer Voip" value="1" />
         <ctl name="Voip_Tx Mixer TERT_MI2S_TX_Voip" value="1" />
@@ -585,11 +580,11 @@
         <ctl name="DEC1 MUX" value="ADC1" />
         <ctl name="ADC1 Volume" value="6" />
     </path>
-    
+
     <path name="dmic1">
         <ctl name="DEC1 MUX" value="DMIC2" />
     </path>
-    
+
     <path name="dmic2">
         <ctl name="DEC2 MUX" value="DMIC1" />
     </path>
@@ -599,7 +594,7 @@
         <ctl name="ADC2 Volume" value="6" />
         <ctl name="MICBIAS CAPLESS Switch" value="1" />
     </path>
-    
+
     <path name="adc3">
         <ctl name="DEC2 MUX" value="ADC2" />
         <ctl name="ADC2 MUX" value="INP3" />
@@ -611,26 +606,26 @@
         <ctl name="SPK DAC Switch" value="1" />
     </path>
     <!--add for tfa9890-->
-	<path name="tfa9890_speaker">
-			<ctl name="Spk_Rec_SW" value="speaker_on" />
-	</path>
-	<path name="tfa9890_receiver">
-			<ctl name="Spk_Rec_SW" value="receiver_on" />
-	</path>
-	<!--tfa9890 end-->
-	<path name="main-mic-test">
-	    <ctl name="DEC1 MUX" value="ADC1" />
-	    <ctl name="DEC1 Volume" value="100" />
-            <ctl name="IIR1 INP1 MUX" value="DEC1" />
-            <ctl name="ADC1 Volume" value="6" />
-        </path>
-        <path name="sec-mic-test">
-               <ctl name="DEC1 MUX" value="ADC2" />
-        			 <ctl name="ADC2 MUX" value="INP3" />
-	    				 <ctl name="DEC1 Volume" value="100" />
-	    				 <ctl name="ADC3 Volume" value="6" />
-        </path>
-        <path name="anc-mic-test">
+    <path name="tfa9890_speaker">
+        <ctl name="Spk_Rec_SW" value="speaker_on" />
+    </path>
+    <path name="tfa9890_receiver">
+        <ctl name="Spk_Rec_SW" value="receiver_on" />
+    </path>
+    <!--tfa9890 end-->
+    <path name="main-mic-test">
+        <ctl name="DEC1 MUX" value="ADC1" />
+        <ctl name="DEC1 Volume" value="100" />
+        <ctl name="IIR1 INP1 MUX" value="DEC1" />
+        <ctl name="ADC1 Volume" value="6" />
+    </path>
+    <path name="sec-mic-test">
+        <ctl name="DEC1 MUX" value="ADC2" />
+        <ctl name="ADC2 MUX" value="INP3" />
+        <ctl name="DEC1 Volume" value="100" />
+        <ctl name="ADC3 Volume" value="6" />
+    </path>
+    <path name="anc-mic-test">
     </path>
 
     <path name="speaker-mic">
@@ -657,21 +652,21 @@
 
     <path name="headphones">
         <ctl name="MI2S_RX Channels" value="Two" />
-        <ctl name="AK4375 BICK Frequency Select" value="48fs" />
+        <ctl name="AK4375 BICK Frequency Select" value="32fs" />
         <ctl name="AK4375 HP-Amp Analog Volume" value="18" />
         <ctl name="AK4375 Digital Output VolumeL" value="25" />
         <ctl name="AK4375 Digital Output VolumeR" value="25" />
         <ctl name="AK4375 DAC MUX" value="SDTI" />
         <ctl name="AK4375 HPL Mixer LDACL" value="1" />
         <ctl name="AK4375 HPR Mixer RDACR" value="1" />
-        <ctl name="MI2S_RX Format" value="S24_LE" />
+        <ctl name="MI2S_RX Format" value="S16_LE" />
     </path>
 
     <path name="headset-mic">
         <path name="adc2" />
         <ctl name="ADC2 MUX" value="INP2" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
-	<ctl name="MI2S_RX Format" value="S16_LE" />
+        <ctl name="MI2S_RX Format" value="S16_LE" />
     </path>
 
     <path name="sidetone-iir">
@@ -708,7 +703,7 @@
     </path>
 
     <path name="voice-headphones">
-    	  <ctl name="MI2S_RX Channels" value="Two" />
+        <ctl name="MI2S_RX Channels" value="Two" />
         <ctl name="AK4375 BICK Frequency Select" value="32fs" />
         <ctl name="AK4375 HP-Amp Analog Volume" value="19" />
         <ctl name="AK4375 DAC MUX" value="SDTI" />
@@ -726,7 +721,7 @@
     </path>
     <path name="headphones-and-tfa9890">
         <path name="headphones" />
-    </path>    
+    </path>
 
     <path name="usb-headphones">
     </path>
@@ -803,13 +798,7 @@
     </path>
 
     <path name="handset-stereo-dmic-ef">
-        <ctl name="DEC2 MUX" value="ADC1" />
-        <ctl name="ADC2 MUX" value="INP3" />
-        <ctl name="DEC1 MUX" value="ADC2" />
-        <ctl name="ADC1 Volume" value="6" />
-        <ctl name="ADC3 Volume" value="6" />
-        <ctl name="MI2S_TX Channels" value="Two" />
-        <ctl name="MI2S_RX Format" value="S16_LE" />
+        <path name="speaker-dmic-endfire" />
     </path>
 
     <path name="speaker-stereo-dmic-ef">
