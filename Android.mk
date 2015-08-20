@@ -25,7 +25,7 @@ FIRMWARE_IMAGES := cmnlib.b00 cmnlib.b01 cmnlib.b02 cmnlib.b03 cmnlib.mdt \
 	isdbtmm.b00 isdbtmm.b01 isdbtmm.b02 isdbtmm.b03 isdbtmm.mdt \
 	keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt \
 	mba.mbn \
-	modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 modem.b08 modem.b10 modem.b11 modem.b13 modem.b14 modem.b15 modem.b16 modem.b17 modem.b18 modem.b19 modem.b22 modem.b23 modem.b24 modem.b25 modem.mdt \
+	modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 modem.b06 modem.b08 modem.b09 modem.b12 modem.b13 modem.b14 modem.b15 modem.b16 modem.b17 modem.b18 modem.b21 modem.b22 modem.b23 modem.b25 modem.b26 modem.mdt modem.pr \
 	playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt \
 	wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 wcnss.b09 wcnss.b10 wcnss.b11 wcnss.mdt \
 	widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
@@ -37,15 +37,7 @@ $(FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ACDB_IMAGES := wcd9320_anc.bin mbhc.bin
-ACDB_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/wcd9320/,$(notdir $(ACDB_IMAGES)))
-$(ACDB_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "ACDB link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /data/misc/audio/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_SYMLINKS) $(ACDB_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_SYMLINKS)
 
 # Create a link for the WCNSS config file, which ends up as a writable
 # version in /data/misc/wifi
