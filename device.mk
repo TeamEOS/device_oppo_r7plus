@@ -18,7 +18,8 @@ LOCAL_PATH := device/oppo/r7plus
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/mixer_paths.xml:/system/etc/mixer_paths.xml
+    $(LOCAL_PATH)/configs/mixer_paths.xml:/system/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/configs/mixer_paths_mtp.xml:/system/etc/mixer_paths_mtp.xml
 
 # ACDB Loader calibration
 PRODUCT_COPY_FILES += \
