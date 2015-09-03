@@ -52,3 +52,7 @@ PRODUCT_COPY_FILES += \
 # Input configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
+
+# Sensor calibration configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/calmodule.cfg:/system/etc/calmodule.cfg
