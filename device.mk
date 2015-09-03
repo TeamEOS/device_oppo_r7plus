@@ -25,6 +25,13 @@ PRODUCT_COPY_FILES += \
 
 # ACDB Loader calibration
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/acdbdata/Bluetooth_cal.acdb:system/etc/acdbdata/Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/acdbdata/General_cal.acdb:system/etc/acdbdata/General_cal.acdb \
+    $(LOCAL_PATH)/acdbdata/Global_cal.acdb:system/etc/acdbdata/Global_cal.acdb \
+    $(LOCAL_PATH)/acdbdata/Handset_cal.acdb:system/etc/acdbdata/Handset_cal.acdb \
+    $(LOCAL_PATH)/acdbdata/Hdmi_cal.acdb:system/etc/acdbdata/Hdmi_cal.acdb \
+    $(LOCAL_PATH)/acdbdata/Headset_cal.acdb:system/etc/acdbdata/Headset_cal.acdb \
+    $(LOCAL_PATH)/acdbdata/Speaker_cal.acdb:system/etc/acdbdata/Speaker_cal.acdb \
     $(LOCAL_PATH)/acdbdata/MTP/MTP_Bluetooth_cal.acdb:system/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb \
     $(LOCAL_PATH)/acdbdata/MTP/MTP_General_cal.acdb:system/etc/acdbdata/MTP/MTP_General_cal.acdb \
     $(LOCAL_PATH)/acdbdata/MTP/MTP_Global_cal.acdb:system/etc/acdbdata/MTP/MTP_Global_cal.acdb \
