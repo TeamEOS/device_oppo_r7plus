@@ -151,6 +151,7 @@
     <!-- EC_REF -->
     <ctl name="AUDIO_REF_EC_UL5 MUX" value="None" />
 
+    <ctl name="AUDIO_REF_EC_UL1 MUX" value="None" />
     <!-- IIR -->
     <ctl name="IIR1 Band1" id ="0" value="268435456" />
     <ctl name="IIR1 Band1" id ="1" value="0" />
@@ -724,15 +725,17 @@
     </path>
 
     <path name="voice-speaker-mic">
-	<!--
         <path name="adc3" />
         <ctl name="DEC1 MUX" value="ADC1" />
         <ctl name="ADC1 Volume" value="4" />
         <ctl name="ADC3 Volume" value="8" />
         <ctl name="MI2S_TX Channels" value="Two" />
         <ctl name="MI2S_RX Format" value="S16_LE" />
-	-->
-	    <path name="speaker-mic" />
+    </path>
+
+    <!-- lile@EXP.BasicDrv.Audio 2015-06-03, modify for 15062 secondory mic -->
+    <path name="voice-speaker-mic-adc2">
+        <path name="speaker-mic" />
     </path>
 
     <path name="voice-headphones">
@@ -848,8 +851,21 @@
     </path>
 
     <!-- qiujianfeng modify for audio ec -->
-    <path name="echo-reference">
+    <path name="native-latency-echo-reference">
+        <ctl name="AUDIO_REF_EC_UL5 MUX" value="I2S_RX" />
+    </path>
+
+    <path name="native-echo-reference">
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="I2S_RX" />
+    </path>
+
+    <!-- qiujianfeng modify for audio ec -->
+    <path name="latency-echo-reference">
         <ctl name="AUDIO_REF_EC_UL5 MUX" value="QUAT_MI2S_TX" />
+    </path>
+
+    <path name="echo-reference">
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="QUAT_MI2S_TX" />
     </path>
 
     <!-- TTY devices -->
