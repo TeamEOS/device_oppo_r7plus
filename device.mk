@@ -55,4 +55,4 @@ PRODUCT_COPY_FILES += \
 
 # Sensor calibration configuration
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/calmodule.cfg:/system/etc/calmodule.cfg
+    $(LOCAL_PATH)/configs/calmodule.cfg:/system/vendor/etc/calmodule.cfg
