@@ -1,5 +1,9 @@
 [
   {
+    "repository": "device_oppo_r7",
+    "target_path": "device/oppo/r7"
+  },
+  {
     "repository": "vendor_oppo_r7",
     "target_path": "vendor/oppo/r7"
   }
