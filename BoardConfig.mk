@@ -27,7 +27,7 @@ TARGET_KERNEL_CONFIG := msm_defconfig
 TARGET_KERNEL_SOURCE := kernel/oppo/r7plus
 
 # Releasetools
-TARGET_OTA_ASSERT_DEVICE := r7plus
+TARGET_OTA_ASSERT_DEVICE := r7plus,r7plusf,R7plusf
 
 # Partition info
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
