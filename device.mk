@@ -20,6 +20,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio_platform_info.xml:/system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/configs/mixer_paths_15018.xml:/system/etc/mixer_paths_mtp.xml \
     $(LOCAL_PATH)/configs/aanc_tuning_mixer.txt:/system/etc/aanc_tuning_mixer.txt \
     $(LOCAL_PATH)/configs/sound_trigger_mixer_paths.xml:/system/etc/sound_trigger_mixer_paths.xml
