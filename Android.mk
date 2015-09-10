@@ -42,7 +42,7 @@ ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_SYMLINKS)
 # Create symbolic links for WCNSS
 $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
     ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
-            $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+            $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini; \
     ln -sf /persist/WCNSS_qcom_wlan_nv.bin \
             $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin; \
     ln -sf /persist/WCNSS_wlan_dictionary.dat \
