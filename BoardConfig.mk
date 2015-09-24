@@ -16,11 +16,8 @@
 
 LOCAL_PATH := device/oppo/r7plus
 
-TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := r7plus
-
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom androidboot.selinux=permissive msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk ramoops.mem_address=0x9ff00000 ramoops.mem_size=0x400000
+BOARD_KERNEL_CMDLINE += ramoops.mem_address=0x9ff00000 ramoops.mem_size=0x400000
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_RAMDISK_OFFSET := 0x01000000
 TARGET_KERNEL_CONFIG := msm_defconfig
