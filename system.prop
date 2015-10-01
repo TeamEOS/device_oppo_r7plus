@@ -4,8 +4,7 @@ ro.sf.lcd_density=480
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 ril.subscription.types=NV,RUIM
-# Start in cdma mode
-ro.telephony.default_network=5
+ro.telephony.default_network=9,1
 
 persist.hwc.mdpcomp.enable=true
 debug.mdpcomp.idletime=600
