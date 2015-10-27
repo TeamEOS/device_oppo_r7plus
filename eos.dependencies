@@ -4,6 +4,10 @@
     "target_path": "device/oppo/r7"
   },
   {
+    "repository": "kernel_oppo_r7plus",
+    "target_path": "kernel/oppo/r7plus"
+  },
+  {
     "repository": "vendor_oppo_r7",
     "target_path": "vendor/oppo/r7"
   }
